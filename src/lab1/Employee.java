@@ -19,10 +19,10 @@ public class Employee {
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
-    private String cubeId;
+    private static String cubeId;
 
     public Employee() {
-
+        cubeId+=1;
     }
     
 // getter and setter methods for standard data
@@ -30,7 +30,7 @@ public class Employee {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    private void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -38,7 +38,7 @@ public class Employee {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    private void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -46,7 +46,7 @@ public class Employee {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
+    private void setSsn(String ssn) {
         this.ssn = ssn;
     }
 
@@ -62,7 +62,7 @@ public class Employee {
         return metWithHr;
     }
 
-    public void setMetWithHr(boolean metWithHr) {
+    private void setMetWithHr(boolean metWithHr) {
         this.metWithHr = metWithHr;
     }
 
@@ -70,7 +70,7 @@ public class Employee {
         return metDeptStaff;
     }
 
-    public void setMetDeptStaff(boolean metDeptStaff) {
+    private void setMetDeptStaff(boolean metDeptStaff) {
         this.metDeptStaff = metDeptStaff;
     }
 
@@ -78,11 +78,11 @@ public class Employee {
         return reviewedDeptPolicies;
     }
 
-    public void setReviewedDeptPolicies(boolean reviewedDeptPolicies) {
+    private void setReviewedDeptPolicies(boolean reviewedDeptPolicies) {
         this.reviewedDeptPolicies = reviewedDeptPolicies;
     }
 
-    public boolean isMovedIn() {
+    private boolean isMovedIn() {
         return movedIn;
     }
 
@@ -94,24 +94,30 @@ public class Employee {
         return cubeId;
     }
 
-    public void setCubeId(String cubeId) {
-        this.cubeId = cubeId;
-    }
-// action methods to create new employee file
+    
+// action methods to create new employee file and make updates to status
+    // create new hire file
     public void createEmployeeFile(String first, String last, String ssn){
         setFirstName(first);
         setLastName(last);
         setSsn(ssn);        
     }
+    // perform Orientation
+    public void orientEmployee(){
+        meetWithHrForBenefitAndSalryInfo();
+        meetDepartmentStaff();
+        reviewDeptPolicies();
+        moveIntoCubicle(getCubeId());
+    }
     
 // action methods for new employee status
     // Assume this must be performed first
-    public void meetWithHrForBenefitAndSalryInfo() {
+    private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
     }
 
     // Assume this is must be performed second
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         if(metWithHr) {
             metDeptStaff = true;
         } else {
@@ -121,7 +127,7 @@ public class Employee {
     }
 
     // Assume this must be performed third
-    public void reviewDeptPolicies() {
+    private void reviewDeptPolicies() {
         if(metWithHr && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
@@ -132,7 +138,7 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    public void moveIntoCubicle(String cubeId) {
+    private void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
             this.cubeId = cubeId;
             this.movedIn = true;

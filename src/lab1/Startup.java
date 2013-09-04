@@ -12,11 +12,8 @@ public class Startup {
     public static void main(String[] args) {
         Employee newHire = new Employee();
         newHire.createEmployeeFile("Peter", "Piper", "333-1234");
-        
-    //    employee.meetDepartmentStaff();
-    //    employee.meetWithHrForBenefitAndSalryInfo();
-    //    employee.reviewDeptPolicies();
-
+        newHire.orientEmployee();
+      
         System.out.println("The employee's status is: " + newHire.getStatus());
     }
     
