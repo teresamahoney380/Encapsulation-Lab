@@ -19,11 +19,12 @@ public class Employee {
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
-    private static String cubeId;
+    private static int cubeNumber;
+    private String cubeId;
 
     public Employee() {
-        cubeId+=1;
-    }
+        cubeNumber+=1;
+        }
     
 // getter and setter methods for standard data
     public String getFirstName() {
@@ -107,7 +108,7 @@ public class Employee {
         meetWithHrForBenefitAndSalryInfo();
         meetDepartmentStaff();
         reviewDeptPolicies();
-        moveIntoCubicle(getCubeId());
+        moveIntoCubicle(cubeNumber);
     }
     
 // action methods for new employee status
@@ -138,9 +139,9 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    private void moveIntoCubicle(String cubeId) {
+    private void moveIntoCubicle(int cubeNumber) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
-            this.cubeId = cubeId;
+            this.cubeId = "C-"+cubeNumber;
             this.movedIn = true;
         } else {
             throw new IllegalStateException("Sorry, you cannot move in to a "
@@ -154,9 +155,16 @@ public class Employee {
     public String getStatus() {
         if(metWithHr && metDeptStaff
            && reviewedDeptPolicies && movedIn) {
-            return "Orientation is complete";
+            return "Orientation is complete for:\n"+ this.toString();
         } else {
             return "Orientation in progress...";
         }
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "firstName=" + firstName + ", lastName=" + lastName 
+                + " Cube Assignment: "+getCubeId()+'}';
+    }
+    
 }
