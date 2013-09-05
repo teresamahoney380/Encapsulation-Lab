@@ -18,11 +18,13 @@ public class Game {
     public Game() {
     }
     
-    private void setNumberOfPlayers(){
+    public void setNumberOfPlayers(){
         // this method will determine the number of players based on the length
         // of the Players ArrayList
         // numberOfPlayers=playerList.size
         numberOfPlayers=5;
+        // not sure how to execute line below
+       // numberOfPlayers=GameGui.getNumberOfPlayers();
     }
     private void setOrderofPlayers(){
         // this method will get a random number from 1 to number of players and assign 
