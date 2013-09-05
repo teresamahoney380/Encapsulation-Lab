@@ -12,8 +12,13 @@ public class GameCharacter {
     private String characterName;
     private String characterPower;
     private String characterStatus;
+    private int characterScore;
 
     public GameCharacter() {
+    }
+
+    private void setCharacterScore(int characterScore) {
+        this.characterScore = characterScore;
     }
 
     public String getCharacterName() {
