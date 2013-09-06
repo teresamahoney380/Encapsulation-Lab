@@ -14,7 +14,8 @@ public class GameCharacter {
     private String characterStatus;
     private int characterScore;
 
-    public GameCharacter() {
+    public GameCharacter(String name) {
+        this.characterName=name;
     }
 
     private void setCharacterScore(int characterScore) {

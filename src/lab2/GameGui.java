@@ -27,11 +27,8 @@ public class GameGui {
     }
     
     private void btnStartGame(){
-        // this methhod is to instantiate a GameCharacter for each item in Characters ArrayList
-        for (int index=0; index<gameCharacters.size(); index++){
-            enteredName=gameCharacters.get(index);
-            gameCharacters.get(index).equals(new GameCharacter(enteredName));
-        }
+        game= new Game(gameCharacters);
+        
     }
     // public getters
      public int getNumberOfPlayers(){

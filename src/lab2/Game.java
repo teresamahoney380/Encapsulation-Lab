@@ -14,8 +14,15 @@ public class Game {
     private int numberOfPlayers;
     private ArrayList<String> orderOfPlayers = new ArrayList<String>();
     private int rNum;
+    private ArrayList<GameCharacter> players = new ArrayList<GameCharacter>();
+    private GameWorld gameworld;
 
-    public Game() {
+    public Game(ArrayList<String> names) {
+        // the constructor will instantiate a GameCharacter for each item in Characters ArrayList
+        for (int index=0; index<names.size(); index++){
+            
+            players.add(new GameCharacter(names.get(index)));
+        }
     }
     
     public void setNumberOfPlayers(){
