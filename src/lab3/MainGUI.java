@@ -353,6 +353,10 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         listProducts.setText(""); // clear list
         listProducts.append("Part\tDesc\t\tPrice\n====\t====\t\t=====\n");
+        // fill arrays from PartsManager Class
+        partNums=partMgr.getPartNums();
+        partDescs=partMgr.getPartDescs();
+        partPrices=partMgr.getPartPrices();
         for (int i = 0 ; i < emptyRow; i++) {
             String rLine = partNums[i] + "\t"
                     + partDescs[i] + "\t\t" + nf.format(partPrices[i]) + "\n";
