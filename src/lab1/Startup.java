@@ -7,6 +7,7 @@ package lab1;
  *
  * @author      Jim Lombardo, WCTC Instructor
  * @version     1.01
+ * @version     Terry Mahoney Lab
  */
 public class Startup {
     public static void main(String[] args) {
