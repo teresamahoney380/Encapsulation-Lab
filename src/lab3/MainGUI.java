@@ -23,20 +23,22 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
     private final int MAX_RECS = 10;
     private final int NOT_FOUND = -1;
 
-    String partNo;
-    int foundIndex = NOT_FOUND;
+    private String partNo;
+    private int foundIndex = NOT_FOUND;
     private String partDesc;
-    double partPrice;
+    private double partPrice;
 
-    String[] partNums = new String[10];
-    String[] partDescs = new String[10];
-    double[] partPrices = new double[10];
-    int emptyRow;
+    private String[] partNums = new String[10];
+    private String[] partDescs = new String[10];
+    private double[] partPrices = new double[10];
+    private int emptyRow;
+    private PartsManager partMgr;
 
     /** Creates new form MainGUI */
     public MainGUI() {
         initComponents();
         this.txtNewProdNo.requestFocus();
+        partMgr=new PartsManager();
     }
 
     /** This method is called from within the constructor to
@@ -284,9 +286,12 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
             this.txtNewProdNo.requestFocus();
 
         } else {
-            partNums[emptyRow] = partNo;
-            partDescs[emptyRow] = partDesc;
-            partPrices[emptyRow] = partPrice;
+            partMgr.setPartNums(partNo, emptyRow);
+            partMgr.setPartDescs(partDesc, emptyRow);
+            partMgr.setPartPrices(partPrice, emptyRow);
+          //  partNums[emptyRow] = partNo;
+          //  partDescs[emptyRow] = partDesc;
+          //  partPrices[emptyRow] = partPrice;
             this.emptyRow += 1;
         }
 
