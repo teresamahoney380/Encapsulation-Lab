@@ -21,6 +21,7 @@ public class Employee {
     private boolean movedIn;
     private static int cubeNumber;
     private String cubeId;
+    private final String CUBE_PREFIX="C-";
 
     public Employee() {
         cubeNumber+=1;
@@ -31,7 +32,7 @@ public class Employee {
         return firstName;
     }
 
-    private void setFirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -39,7 +40,7 @@ public class Employee {
         return lastName;
     }
 
-    private void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -47,7 +48,7 @@ public class Employee {
         return ssn;
     }
 
-    private void setSsn(String ssn) {
+    public void setSsn(String ssn) {
         this.ssn = ssn;
     }
 
@@ -141,7 +142,7 @@ public class Employee {
     // Assume this must be performed 4th
     private void moveIntoCubicle(int cubeNumber) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
-            this.cubeId = "C-"+cubeNumber;
+            this.cubeId = CUBE_PREFIX+cubeNumber;
             this.movedIn = true;
         } else {
             throw new IllegalStateException("Sorry, you cannot move in to a "
