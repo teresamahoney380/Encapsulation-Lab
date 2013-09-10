@@ -14,12 +14,16 @@ public class GameCharacter {
     private String characterStatus;
     private int characterScore;
 
-    public GameCharacter(String name) {
+    public GameCharacter(String name, String power) {
         this.characterName=name;
+        this.characterPower=power;
     }
 
-    private void setCharacterScore(int characterScore) {
-        this.characterScore = characterScore;
+    public void setCharacterScore(int characterScore) {
+        this.characterScore += characterScore;
+    }
+    public int getCharacterScore(){
+        return characterScore;
     }
 
     public String getCharacterName() {
