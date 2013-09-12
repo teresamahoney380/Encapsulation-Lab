@@ -286,9 +286,7 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
             this.txtNewProdNo.requestFocus();
 
         } else {
-            partMgr.setPartNums(partNo, emptyRow);
-            partMgr.setPartDescs(partDesc, emptyRow);
-            partMgr.setPartPrices(partPrice, emptyRow);
+            partMgr.addNewPart(partNo, partDesc, partPrice);
           //  partNums[emptyRow] = partNo;
           //  partDescs[emptyRow] = partDesc;
           //  partPrices[emptyRow] = partPrice;
@@ -354,12 +352,10 @@ public class MainGUI extends javax.swing.JFrame implements ActionListener {
         listProducts.setText(""); // clear list
         listProducts.append("Part\tDesc\t\tPrice\n====\t====\t\t=====\n");
         // fill arrays from PartsManager Class
-        partNums=partMgr.getPartNums();
-        partDescs=partMgr.getPartDescs();
-        partPrices=partMgr.getPartPrices();
-        for (int i = 0 ; i < emptyRow; i++) {
-            String rLine = partNums[i] + "\t"
-                    + partDescs[i] + "\t\t" + nf.format(partPrices[i]) + "\n";
+        
+        for (Part p : partMgr.getParts()) {
+            String rLine = p.getPartNum() + "\t"
+                    + p.getPartDesc() + "\t\t" + nf.format(p.getPartPrice()) + "\n";
             listProducts.append(rLine);
         }
     }
